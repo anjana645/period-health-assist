@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Health Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cc16ae;
+            background-image: url("https://cdn.pixabay.com/photo/2016/10/18/21/22/beach-1751455_1280.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        .chat-container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        .messages {
+            height: 300px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .user { background: #0c9449; text-align: right; color: white; }
+        .bot { background: #e6e6e6; text-align: left; }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #ff3385;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Period Health Assistant</h2>
+    <div class="chat-container">
+        <div class="messages" id="messages"></div>
+        <input type="text" id="userInput" placeholder="Type your concern...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("userInput").value;
+            if (!userInput) return; // Prevent empty messages
+
+            let messagesDiv = document.getElementById("messages");
+
+            // Display user message
+            let userMessageDiv = document.createElement("div");
+            userMessageDiv.className = "message user";
+            userMessageDiv.innerText = userInput;
+            messagesDiv.appendChild(userMessageDiv);
+
+            // Send message to Flask backend
+            fetch("/reverse", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                let botMessageDiv = document.createElement("div");
+                botMessageDiv.className = "message bot";
+                botMessageDiv.innerText = "Reversed: " + data.response;
+                messagesDiv.appendChild(botMessageDiv);
+            });
+
+            document.getElementById("userInput").value = ""; // Clear input field
+        }
+    </script>
+
+</body>
+</html>
+
