@@ -1,38 +1,38 @@
-# [Project Name] 🎯
+# [period-health-assist] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [ohm squad]
 
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: [Anjana Anil] - [UKF College of Engineering and Technology]
+- Member 2: [Anjana Jaya] - [UKF College of Engineering and Technology]
+- Member 3: [Devayani. S] - [UKF College of Engineering and Technology]
 
 ### Hosted Project Link
 [mention your project hosted project link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+[This project is to help women to deal with their period problems. The concerns told will be replied with apt remedies for it.]
 
 ### The Problem statement
-[What ridiculous problem are you solving?]
+[to reduce the difficulties faced by a women having her period]
 
 ### The Solution
-[How are you solving it? Keep it fun!]
+[created a chatbot which provides remedies for the problem being input]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
+- [javascript]
+- [python]
+- [html]
 - [Tools used]
 
 For Hardware:
-- [List main components]
-- [List specifications]
+- [laptop]
+- [HP, intel core i3 7th gen]
 - [List tools required]
 
 ### Implementation
